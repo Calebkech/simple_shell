@@ -15,7 +15,10 @@ char *read_line(void)
     write(STDOUT_FILENO, "$ ", 2);
     char_n = getline(&line, &len, stdin); /* retrieve number of chars*/
     if (char_n == EOF) /* return -1*/
+    {
+        free(line);
         return (NULL);
+    }
 
     return (line);
 
