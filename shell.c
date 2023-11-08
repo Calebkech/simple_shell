@@ -4,7 +4,7 @@
  * display_prompt - Prints the shell prompt to the standard output
  */
 void display_prompt(void) {
-    const char *prompt = "simple_shell $ ";
+    const char *prompt = "$ ";
     write(STDOUT_FILENO, prompt, strlen(prompt));
 }
 
@@ -38,20 +38,13 @@ void execute_command(char *command) {
         exit(EXIT_FAILURE);
     } else if (child_pid == 0) {
         /* Child process */
-        execvp(command, argv);
-        write(STDERR_FILENO, command, strlen(command));
-        write(STDERR_FILENO, ": Command not found \n", 19);
-        exit(EXIT_FAILURE);
+        if (execve(command, argv, NULL) == -1) {
+            perror(command);
+            exit(EXIT_FAILURE);
+        }
     } else {
         /* Parent process */
         int status;
         waitpid(child_pid, &status, 0);
-        if (WIFEXITED(status)) {
-            int exit_status = WEXITSTATUS(status);
-            if (exit_status != 0) {
-                write(STDERR_FILENO, command, strlen(command));
-                write(STDERR_FILENO, ": Command exited with non-zero status \n", 37);
-            }
-        }
     }
 }
