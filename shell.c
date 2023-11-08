@@ -21,30 +21,3 @@ void user_input(char *command, size_t size) {
     }
     command[strcspn(command, "\n")] = '\0'; /* Remove newline */
 }
-
-/**
- * execute_command - Executes a shell command
- * @command: The command to execute
- */
-void execute_command(char *command) {
-    pid_t child_pid;
-    char *argv[2];
-    argv[0] = command;
-    argv[1] = NULL;
-
-    child_pid = fork();
-    if (child_pid == -1) {
-        perror("fork");
-        exit(EXIT_FAILURE);
-    } else if (child_pid == 0) {
-        /* Child process */
-        if (execve(command, argv, NULL) == -1) {
-            perror(command);
-            exit(EXIT_FAILURE);
-        }
-    } else {
-        /* Parent process */
-        int status;
-        waitpid(child_pid, &status, 0);
-    }
-}

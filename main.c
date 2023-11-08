@@ -13,6 +13,12 @@ int main(void)
     {
         display_prompt();
         user_input(command, sizeof(command));
+
+        if (check_exit(command))
+        {
+            break;
+        }
+
         execute_command(command);
     }
 
