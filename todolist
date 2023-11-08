@@ -1,0 +1,7 @@
+The prompt is displayed again each time a command has been executed.
+
+If an executable cannot be found, print an error message and display the prompt again.	
+
+Handle errors.
+
+execve will be the core part of your Shell, don’t forget to pass the environ to it…
