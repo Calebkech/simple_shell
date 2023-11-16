@@ -12,6 +12,13 @@ void execute_command(char *command) {
 
     tokenize_command(cmd_copy, argv);
 
+    if (strcmp(argv[0], "env") == 0)
+    {
+        print_env();
+        free(cmd_copy);
+        return;
+    }
+
     if (argv[0][0] == '/' || argv[0][0] == '.') {
         /* Absolute or relative path */
         if (access(argv[0], X_OK) == 0) {
@@ -42,10 +49,9 @@ void execute_command(char *command) {
         free(path_copy);
     }
 
-    free(cmd_copy);
-
     if (!cmd_exists) {
         fprintf(stderr, "%s: command not found\n", argv[0]);
+        free(cmd_copy);
         return;
     }
 
@@ -70,4 +76,6 @@ void execute_command(char *command) {
         int status;
         waitpid(child_pid, &status, 0);
     }
+
+    free(cmd_copy);
 }
