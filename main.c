@@ -7,19 +7,22 @@
  */
 int main(void)
 {
-    char command[128];
+    char *command;
+    char *argv[128];
 
     while (1)
     {
         display_prompt();
-        user_input(command, sizeof(command));
+        command = _getline();
+        tokenize_command(command, argv);
 
-        if (check_exit(command))
+        if (check_exit(argv))
         {
             break;
         }
 
         execute_command(command);
+        free(command);
     }
 
     return 0;

@@ -23,7 +23,7 @@ void user_input(char *command, size_t size);
 void execute_command(char *command);
 void execute_directly(char *command, char **argv);
 void execute_from_path(char *command, char **argv);
-int check_exit(char *command);
+int check_exit(char **argv);
 void print(const char *string);
 void tokenize_command(char *command, char **argv);
 void print_env(void);
