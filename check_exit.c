@@ -8,9 +8,10 @@
  */
 int check_exit(char *command)
 {
-    if (strcmp(command, "exit") == 0)
-    {
-        return 1;
-    }
-    return 0;
+	if (strcmp(command, "exit") == 0)
+	{
+		return 1;
+	}
+	return 0;
 }
+
