@@ -24,5 +24,6 @@ void execute_directly(char *command, char **argv);
 void execute_from_path(char *command, char **argv);
 int check_exit(char *command);
 void print(const char *string);
+void tokenize_command(char *command, char **argv);
 
 #endif /* SHELL_H */
