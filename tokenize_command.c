@@ -14,8 +14,4 @@ void tokenize_command(char *command, char **argv)
         i++;
         argv[i] = strtok(NULL, " ");
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e4cd24a5a2f38d2c5558e85da8bfe2e89ccb92be
