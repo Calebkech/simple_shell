@@ -18,6 +18,7 @@
 #define false 0
 
 void display_prompt(void);
+char *_getline(void);
 void user_input(char *command, size_t size);
 void execute_command(char *command);
 void execute_directly(char *command, char **argv);

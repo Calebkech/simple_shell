@@ -42,14 +42,13 @@ The shell will display a prompt where you can enter commands. It supports execut
 
 Here's an example of using the shell program:
 
-```
-
+``
 $ ./shell
 $> ls
 file1.txt file2.txt directory
 $> pwd
 /home/user
-```
+``
 
 ## Contributing
 
