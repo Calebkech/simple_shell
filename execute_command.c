@@ -31,4 +31,8 @@ void execute_command(char *command) {
         int status;
         waitpid(child_pid, &status, 0);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e4cd24a5a2f38d2c5558e85da8bfe2e89ccb92be
