@@ -12,13 +12,6 @@ void execute_command(char *command) {
 
     tokenize_command(cmd_copy, argv);
 
-    if (strcmp(argv[0], "env") == 0)
-    {
-        print_env();
-        free(cmd_copy);
-        return;
-    }
-
     if (argv[0][0] == '/' || argv[0][0] == '.') {
         /* Absolute or relative path */
         if (access(argv[0], X_OK) == 0) {
