@@ -61,4 +61,8 @@ char *_getline(void)
             return line;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of 9f62f07 (new update)
