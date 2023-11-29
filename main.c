@@ -1,5 +1,6 @@
 #include "shell.h"
 
+
 /**
  * main - Entry point of the shell program
  *
@@ -7,22 +8,20 @@
  */
 int main(void)
 {
-    char *command;
-    char *argv[128];
+    char command[128];
 
     while (1)
     {
         display_prompt();
-        command = _getline();
-        tokenize_command(command, argv);
+        user_input(command, sizeof(command));
 
-        if (check_exit(argv))
+        if (check_exit(command))
         {
             break;
         }
+        
 
         execute_command(command);
-        free(command);
     }
 
     return 0;

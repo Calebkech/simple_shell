@@ -13,8 +13,7 @@ void print_env(void)
         printf("%s\n", environ[i]);
         i++;
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> parent of 9f62f07 (new update)
+
+
