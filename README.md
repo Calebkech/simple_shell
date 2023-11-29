@@ -36,22 +36,19 @@ This will generate an executable file named `hsh`.
 
 To run the shell, execute the following command: `./hsh`.
 
-
 The shell will display a prompt where you can enter commands. It supports executing commands directly or from the PATH environment variable.
 
 ## Example
 
 Here's an example of using the shell program:
 
+``
 $ ./shell
-
 $> ls
-
 file1.txt file2.txt directory
-
 $> pwd
-
 /home/user
+``
 
 ## Contributing
 
